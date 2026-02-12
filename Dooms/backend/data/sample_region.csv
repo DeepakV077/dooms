@@ -1,9 +1,80 @@
 region,species_name,vulnerability_score,population_trend,habitat_type
 Arctic,Polar Bear,0.85,declining,ice
 Arctic,Arctic Fox,0.65,stable,tundra
+Arctic,Musk Ox,0.62,stable,tundra
+Arctic,Arctic Tern,0.58,stable,ice
+Arctic,Walrus,0.79,declining,ice
 Tropical,Coral Reef,0.92,declining,ocean
+Tropical,Poison Dart Frog,0.88,declining,rainforest
+Tropical,Toucan,0.71,stable,rainforest
+Tropical,Jaguar,0.68,declining,rainforest
+Tropical,Macaw,0.75,declining,rainforest
 Amazon,Tree Frog,0.72,declining,rainforest
-Amazon,Jaguar,0.68,declining,rainforest
+Amazon,Giant Otter,0.81,declining,river
+Amazon,Anaconda,0.68,stable,rainforest
+Amazon,Harpy Eagle,0.79,declining,rainforest
+Amazon,Tapir,0.73,declining,rainforest
 Africa,African Elephant,0.71,declining,savanna
+Africa,Lion,0.64,declining,savanna
+Africa,Giraffe,0.61,stable,savanna
+Africa,Black Rhinoceros,0.88,stable,savanna
+Africa,African Wild Dog,0.77,declining,savanna
+Africa,Zebra,0.59,stable,savanna
+Africa,Hippopotamus,0.67,declining,river
+Africa,Cheetah,0.73,declining,savanna
+Africa,Secretary Bird,0.56,stable,savanna
 Ocean,Sea Turtle,0.79,declining,ocean
+Ocean,Blue Whale,0.82,declining,ocean
+Ocean,Great White Shark,0.76,stable,ocean
+Ocean,Manta Ray,0.74,declining,ocean
+Ocean,Sea Lion,0.68,stable,ocean
+Ocean,Dolphin,0.71,declining,ocean
+Ocean,Seahorse,0.85,declining,ocean
 Europe,Alpine Marmot,0.58,stable,mountains
+Europe,Lynx,0.72,declining,forest
+Europe,Brown Bear,0.69,declining,forest
+Europe,Gray Wolf,0.62,stable,forest
+Europe,Golden Eagle,0.64,stable,mountains
+Europe,European Badger,0.51,stable,forest
+Europe,Capercaillie,0.74,declining,forest
+Europe,Otter,0.75,declining,river
+Asia,Snow Leopard,0.81,declining,mountains
+Asia,Giant Panda,0.78,stable,forest
+Asia,Bengal Tiger,0.84,declining,forest
+Asia,Red Panda,0.76,declining,forest
+Asia,Asian Elephant,0.73,declining,forest
+Asia,Orangutan,0.86,declining,rainforest
+Asia,Gibbon,0.82,declining,forest
+Asia,Clouded Leopard,0.79,declining,forest
+Asia,Asiatic Lion,0.83,stable,savanna
+Asia,Wild Water Buffalo,0.81,declining,grassland
+Australia,Koala,0.75,declining,forest
+Australia,Tasmanian Devil,0.88,declining,forest
+Australia,Wombat,0.61,stable,forest
+Australia,Kookaburra,0.54,stable,forest
+Australia,Saltwater Crocodile,0.68,stable,river
+Australia,Bandicoot,0.79,declining,forest
+Australia,Sugar Glider,0.72,declining,forest
+Australia,Quokka,0.71,stable,forest
+Antarctica,Emperor Penguin,0.77,declining,ice
+Antarctica,Adelie Penguin,0.74,declining,ice
+Antarctica,Chinstrap Penguin,0.73,declining,ice
+Antarctica,Leopard Seal,0.68,stable,ice
+Antarctica,Skua,0.59,stable,ice
+Antarctica,Antarctic Fur Seal,0.65,stable,ice
+North America,Gray Wolf,0.62,stable,forest
+North America,Bald Eagle,0.58,stable,forest
+North America,Grizzly Bear,0.71,declining,mountains
+North America,Mountain Lion,0.69,stable,forest
+North America,Bison,0.64,stable,grassland
+North America,Pronghorn,0.57,stable,grassland
+North America,Black-footed Ferret,0.87,declining,grassland
+North America,California Condor,0.92,stable,mountains
+South America,Amazon Dolphin,0.83,declining,river
+South America,Sloth,0.76,declining,rainforest
+South America,Capybara,0.63,stable,grassland
+South America,Llama,0.59,stable,mountains
+South America,Anaconda,0.68,stable,rainforest
+South America,Toucan,0.71,stable,rainforest
+South America,Jaguar,0.68,declining,rainforest
+South America,Vicuña,0.72,stable,mountains

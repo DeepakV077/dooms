@@ -8,6 +8,7 @@ import EnvironmentalTrendChart from "../components/charts/EnvironmentalTrendChar
 import StabilityCard from "../components/cards/StabilityCard";
 import SpeciesCard from "../components/cards/SpeciesCard";
 import HazardCard from "../components/cards/HazardCard";
+import CustomDashboardInput from "../components/dashboard/CustomDashboardInput";
 
 const Dashboard = () => {
   const [region, setRegion] = useState({
@@ -17,6 +18,7 @@ const Dashboard = () => {
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showCustomInput, setShowCustomInput] = useState(false);
 
   // 🔷 Dynamic Fetch on Region Change
   useEffect(() => {
@@ -29,6 +31,13 @@ const Dashboard = () => {
 
     fetchData();
   }, [region]);
+
+  const handleCustomDataSubmit = (customData) => {
+    setData(customData);
+    setShowCustomInput(false);
+    // Update region to reflect custom data
+    setRegion(prev => ({ ...prev, name: customData.region }));
+  };
 
   return (
     <div className="min-h-screen bg-white py-10 px-6">
@@ -45,7 +54,15 @@ const Dashboard = () => {
             </p>
           </div>
 
-          <RegionSelector onChange={setRegion} />
+          <div className="flex gap-3 items-center">
+            <RegionSelector onChange={setRegion} />
+            <button
+              onClick={() => setShowCustomInput(true)}
+              className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition whitespace-nowrap"
+            >
+              + Custom Input
+            </button>
+          </div>
         </div>
 
         {/* ================= LOADING STATE ================= */}
@@ -78,6 +95,14 @@ const Dashboard = () => {
           </>
         )}
       </div>
+
+      {/* ================= CUSTOM INPUT MODAL ================= */}
+      {showCustomInput && (
+        <CustomDashboardInput
+          onDataSubmit={handleCustomDataSubmit}
+          onCancel={() => setShowCustomInput(false)}
+        />
+      )}
     </div>
   );
 };

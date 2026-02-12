@@ -46,12 +46,46 @@ REGION_DATA = {
     }
 }
 
-@dashboard_bp.route('', methods=['GET', 'OPTIONS'])
+@dashboard_bp.route('', methods=['GET', 'POST', 'OPTIONS'])
 def get_dashboard_data():
-    """Get dynamic dashboard metrics based on selected region"""
+    """Get dynamic dashboard metrics - supports both region lookup and manual input"""
     if request.method == 'OPTIONS':
         return {}, 200
     
+    # Handle POST request with manual input
+    if request.method == 'POST':
+        data = request.get_json()
+        
+        # Validate required fields
+        stability = data.get('stability')
+        species_probability = data.get('speciesProbability')
+        hazard_risk = data.get('hazardRisk')
+        trend = data.get('trend', [])
+        region = data.get('region', 'Custom Region')
+        
+        # Validate data types
+        if stability is not None and isinstance(stability, (int, float)):
+            stability = min(100, max(0, stability))
+        else:
+            stability = 50
+            
+        if species_probability is not None and isinstance(species_probability, (int, float)):
+            species_probability = min(100, max(0, species_probability))
+        else:
+            species_probability = 50
+            
+        if not isinstance(hazard_risk, str):
+            hazard_risk = "Moderate"
+        
+        return jsonify({
+            "region": region,
+            "stability": stability,
+            "speciesProbability": species_probability,
+            "hazardRisk": hazard_risk,
+            "trend": trend if isinstance(trend, list) else []
+        }), 200
+    
+    # Handle GET request with region parameter
     region = request.args.get('region', 'Bay of Bengal')
     
     # Get region-specific data or default to Bay of Bengal
