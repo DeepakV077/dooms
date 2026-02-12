@@ -1,44 +1,59 @@
-import { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { useEffect } from "react";
+import L from "leaflet";
+
+// Fix leaflet marker icons
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png"
+});
+
+// Component to update map view when region changes
+const MapUpdater = ({ center }) => {
+  const map = useMap();
+  useEffect(() => {
+    if (center) {
+      map.setView(center, 6);
+    }
+  }, [center, map]);
+  return null;
+};
 
 const MapView = ({ region }) => {
-  const [position] = useState(region?.coordinates || [13.08, 80.27]);
-
+  const coordinates = region?.coordinates || [13.08, 80.27];
+  
   return (
-    <div className="h-[450px] rounded-3xl overflow-hidden border border-blue-100 shadow-lg bg-gradient-to-br from-blue-50 to-cyan-50">
-      <div className="w-full h-full flex flex-col items-center justify-center relative">
-        {/* Decorative map background */}
-        <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 1000 500">
-          <defs>
-            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#0046FF" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="1000" height="500" fill="url(#grid)" />
-          {/* Coastline simulation */}
-          <path d="M 0 150 Q 250 100 500 150 T 1000 150" fill="none" stroke="#0046FF" strokeWidth="2" opacity="0.3" />
-          {/* Water regions */}
-          <circle cx="300" cy="250" r="120" fill="#73C8D2" opacity="0.15" />
-          <circle cx="700" cy="300" r="100" fill="#73C8D2" opacity="0.15" />
-        </svg>
+    <div className="rounded-3xl overflow-hidden border border-blue-100 shadow-lg">
+      <MapContainer
+        center={coordinates}
+        zoom={6}
+        scrollWheelZoom={true}
+        className="h-[450px] w-full"
+      >
+        {/* OpenStreetMap Tiles */}
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-        {/* Map info overlay */}
-        <div className="relative z-10 text-center">
-          <h3 className="text-lg font-semibold text-primary mb-4">{region?.name || "Interactive Marine Map"}</h3>
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary/20">
-            <p className="text-sm text-primary/70 mb-2">Selected Region Coordinates:</p>
-            <p className="font-mono font-bold text-primary text-xl">
-              {position[0].toFixed(2)}°N, {position[1].toFixed(2)}°E
-            </p>
-            <p className="text-xs text-primary/60 mt-3">⟩ Hover to explore marine data</p>
-          </div>
-        </div>
+        {/* Marine Region Marker */}
+        <Marker position={coordinates}>
+          <Popup>
+            <div className="text-sm font-semibold">
+              {region?.name || "Marine Region"}
+              <br />
+              <span className="text-xs text-gray-600">
+                {coordinates[0].toFixed(2)}°N, {coordinates[1].toFixed(2)}°E
+              </span>
+            </div>
+          </Popup>
+        </Marker>
 
-        {/* Marker indicator */}
-        <div className="absolute z-20 w-8 h-8 bottom-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 animate-pulse">
-          <div className="w-full h-full bg-orange-500 rounded-full shadow-lg"></div>
-          <div className="absolute inset-0 w-full h-full bg-orange-500 rounded-full animate-ping opacity-75"></div>
-        </div>
-      </div>
+        {/* Update map center when region changes */}
+        <MapUpdater center={coordinates} />
+      </MapContainer>
     </div>
   );
 };
