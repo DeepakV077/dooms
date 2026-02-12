@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import { getDashboardData } from "../services/dashboardService";
 
 import RegionSelector from "../components/map/RegionSelector";
@@ -67,14 +66,12 @@ const Dashboard = () => {
             <AIInsightPanel data={data} />
 
             {/* ================= MAP ================= */}
-            <motion.div
+            <div
               key={region.name}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              className="animate-fadeIn"
             >
               <MapView region={region} />
-            </motion.div>
+            </div>
 
             {/* ================= TREND ANALYTICS ================= */}
             <EnvironmentalTrendChart data={data.trend} />

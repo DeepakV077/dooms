@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const AIInsightPanel = ({ data }) => {
   if (!data) return null;
 
@@ -14,11 +12,7 @@ const AIInsightPanel = ({ data }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="bg-white border border-blue-100 rounded-3xl shadow-lg p-8"
-    >
+    <div className="bg-white border border-blue-100 rounded-3xl shadow-lg p-8 animate-fadeIn">
       <h3 className="text-blue-600 font-semibold text-xl mb-4">
         AI Climate Insight Summary
       </h3>
@@ -47,7 +41,7 @@ const AIInsightPanel = ({ data }) => {
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
