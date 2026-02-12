@@ -1,0 +1,9 @@
+region,species_name,vulnerability_score,population_trend,habitat_type
+Arctic,Polar Bear,0.85,declining,ice
+Arctic,Arctic Fox,0.65,stable,tundra
+Tropical,Coral Reef,0.92,declining,ocean
+Amazon,Tree Frog,0.72,declining,rainforest
+Amazon,Jaguar,0.68,declining,rainforest
+Africa,African Elephant,0.71,declining,savanna
+Ocean,Sea Turtle,0.79,declining,ocean
+Europe,Alpine Marmot,0.58,stable,mountains
