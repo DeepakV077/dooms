@@ -1,87 +1,85 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { getDashboardData } from "../services/dashboardService";
-import ClimateImpactCard from "../components/cards/ClimateImpactCard";
-import HazardCard from "../components/cards/HazardCard";
-import SpeciesCard from "../components/cards/SpeciesCard";
-import StabilityCard from "../components/cards/StabilityCard";
+
+import RegionSelector from "../components/map/RegionSelector";
 import MapView from "../components/map/MapView";
-import MigrationOverlay from "../components/map/MigrationOverlay";
-import RiskHeatmap from "../components/map/RiskHeatmap";
+import AIInsightPanel from "../components/insights/AIInsightPanel";
+import EnvironmentalTrendChart from "../components/charts/EnvironmentalTrendChart";
+import StabilityCard from "../components/cards/StabilityCard";
+import SpeciesCard from "../components/cards/SpeciesCard";
+import HazardCard from "../components/cards/HazardCard";
 
 const Dashboard = () => {
+  const [region, setRegion] = useState({
+    name: "Bay of Bengal",
+    coordinates: [13.08, 80.27]
+  });
+
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
+  // 🔷 Dynamic Fetch on Region Change
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await getDashboardData();
-        setData(response);
-      } catch (err) {
-        console.error("Failed to fetch dashboard data:", err);
-        setError(err.message);
-      }
+      setLoading(true);
+      const response = await getDashboardData(region.name);
+      setData(response);
       setLoading(false);
     };
+
     fetchData();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white py-12 px-6 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
-          <p className="text-blue-600 font-medium">Loading dashboard data...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-white py-12 px-6 flex items-center justify-center">
-        <div className="text-center text-red-600">
-          <p className="font-semibold mb-2">Failed to load dashboard</p>
-          <p className="text-sm">{error}</p>
-        </div>
-      </div>
-    );
-  }
+  }, [region]);
 
   return (
-    <div className="min-h-screen bg-white py-12 px-6">
-      <div className="container mx-auto max-w-7xl space-y-12">
+    <div className="min-h-screen bg-white py-10 px-6">
+      <div className="container mx-auto max-w-7xl space-y-10">
 
         {/* ================= HEADER ================= */}
-        <div>
-          <h1 className="text-3xl font-bold text-blue-600">
-            Climate Intelligence Dashboard
-          </h1>
-          <p className="text-black/70 mt-2">
-            Real-time ecosystem stability, species prediction, and coastal risk analytics.
-          </p>
-        </div>
-
-        {/* ================= MAP SECTION ================= */}
-        <div
-          className="bg-white border border-blue-100 rounded-3xl shadow-lg p-6 animate-fadeIn"
-        >
-          <MapView />
-          <div className="grid md:grid-cols-2 gap-6 mt-6">
-            <MigrationOverlay />
-            <RiskHeatmap />
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
+          <div>
+            <h1 className="text-3xl font-bold text-blue-600">
+              V-Forge Enterprise Climate Dashboard
+            </h1>
+            <p className="text-black/60 mt-1">
+              Dynamic ecosystem intelligence & predictive analytics
+            </p>
           </div>
+
+          <RegionSelector onChange={setRegion} />
         </div>
 
-        {/* ================= METRIC CARDS ================= */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <StabilityCard score={data?.stability} />
-          <SpeciesCard probability={data?.speciesProbability} />
-          <HazardCard risk={data?.hazardRisk} />
-          <ClimateImpactCard impact={data?.climateImpact} />
-        </div>
+        {/* ================= LOADING STATE ================= */}
+        {loading ? (
+          <div className="text-center py-20 text-black/60">
+            Loading climate intelligence...
+          </div>
+        ) : (
+          <>
+            {/* ================= KPI CARDS ================= */}
+            <div className="grid md:grid-cols-3 gap-8">
+              <StabilityCard score={data.stability} />
+              <SpeciesCard probability={data.speciesProbability} />
+              <HazardCard risk={data.hazardRisk} />
+            </div>
 
+            {/* ================= AI INSIGHT ================= */}
+            <AIInsightPanel data={data} />
+
+            {/* ================= MAP ================= */}
+            <motion.div
+              key={region.name}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <MapView region={region} />
+            </motion.div>
+
+            {/* ================= TREND ANALYTICS ================= */}
+            <EnvironmentalTrendChart data={data.trend} />
+          </>
+        )}
       </div>
     </div>
   );
