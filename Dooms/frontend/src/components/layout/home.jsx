@@ -1,14 +1,4 @@
 import React from 'react';
-import { 
-  BarChart3, 
-  Waves, 
-  ThermometerSnowflake, 
-  ShieldCheck, 
-  Fish, 
-  Activity, 
-  Navigation, 
-  Zap 
-} from 'lucide-react';
 
 const Home = () => {
   return (
@@ -57,8 +47,8 @@ const Home = () => {
       {/* ================= WHAT WE DO ================= */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="container mx-auto px-6 text-center max-w-4xl">
-          <div className="flex justify-center mb-4">
-            <Activity className="text-accent w-10 h-10" />
+          <div className="flex justify-center mb-4 text-4xl">
+            ⚡
           </div>
           <h2 className="text-3xl font-bold text-primary">
             What We Do
@@ -82,8 +72,8 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all group">
-              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <BarChart3 size={24} />
+              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-2xl">
+                📊
               </div>
               <h3 className="font-semibold text-primary text-lg">
                 Predictive Intelligence
@@ -96,8 +86,8 @@ const Home = () => {
 
             {/* Card 2 */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all group">
-              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <ShieldCheck size={24} />
+              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-2xl">
+                🛡️
               </div>
               <h3 className="font-semibold text-primary text-lg">
                 Ecosystem Stability Index
@@ -110,8 +100,8 @@ const Home = () => {
 
             {/* Card 3 */}
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-all group">
-              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <ThermometerSnowflake size={24} />
+              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-2xl">
+                🌡️
               </div>
               <h3 className="font-semibold text-primary text-lg">
                 Climate Scenario Simulation
@@ -134,14 +124,14 @@ const Home = () => {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {[
-              { text: "Species Habitat Suitability Prediction", icon: <Fish className="text-accent" size={20} /> },
-              { text: "Ocean Stability Composite Index", icon: <Waves className="text-accent" size={20} /> },
-              { text: "Coastal Hazard Risk Detection", icon: <ShieldCheck className="text-accent" size={20} /> },
-              { text: "Climate-Driven Migration Modeling", icon: <Navigation className="text-accent" size={20} /> },
-              { text: "Interactive Environmental Simulation", icon: <Zap className="text-accent" size={20} /> }
+              { text: "Species Habitat Suitability Prediction", icon: "🐟" },
+              { text: "Ocean Stability Composite Index", icon: "🌊" },
+              { text: "Coastal Hazard Risk Detection", icon: "🛡️" },
+              { text: "Climate-Driven Migration Modeling", icon: "🧭" },
+              { text: "Interactive Environmental Simulation", icon: "⚡" }
             ].map((item, index) => (
               <div key={index} className="flex items-center gap-4 p-4 rounded-xl border border-gray-50 hover:bg-gray-50 transition">
-                {item.icon}
+                <span className="text-2xl">{item.icon}</span>
                 <span className="text-lg text-primary/80 font-medium">{item.text}</span>
               </div>
             ))}
@@ -163,7 +153,7 @@ const Home = () => {
           </p>
 
           <button className="mt-8 bg-warning text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-lg flex items-center gap-2 mx-auto">
-            Get Started <Zap size={18} fill="currentColor" />
+            Get Started ⚡
           </button>
         </div>
       </section>
