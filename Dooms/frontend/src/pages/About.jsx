@@ -1,113 +1,130 @@
 const About = () => {
   return (
-    <div className="bg-white min-h-screen py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-6 text-center sm:text-left">
-            About Doomsphere
+    <div className="min-h-screen bg-white py-16 px-6">
+      <div className="container mx-auto max-w-5xl space-y-16">
+
+        {/* ================= HEADER ================= */}
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-blue-600">
+            About V-Forge
           </h1>
-          
-          <div className="space-y-6">
-            <section className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h2 className="text-xl sm:text-2xl font-semibold text-accent mb-4">
-                Our Mission
-              </h2>
-              <p className="leading-relaxed text-sm sm:text-base text-gray-700">
-                Doomsphere is an interactive platform designed to visualize and understand 
-                the profound impacts of climate change on our planet's ecosystems and species. 
-                We combine real-time data, machine learning predictions, and intuitive 
-                visualizations to make climate science accessible to everyone.
-              </p>
-            </section>
-
-            <section className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h2 className="text-xl sm:text-2xl font-semibold text-accent mb-4">
-                What We Do
-              </h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-medium text-primary mb-2">
-                    🌡️ Climate Impact Simulation
-                  </h3>
-                  <p className="leading-relaxed text-sm sm:text-base text-gray-700">
-                    Run advanced simulations to project how different climate scenarios 
-                    affect ecosystems, species populations, and environmental stability 
-                    over time.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg sm:text-xl font-medium text-primary mb-2">
-                    🐾 Species Vulnerability Tracking
-                  </h3>
-                  <p className="leading-relaxed text-sm sm:text-base text-gray-700">
-                    Monitor at-risk species worldwide, analyzing factors like habitat 
-                    loss, temperature changes, and ecosystem disruption to assess 
-                    vulnerability scores.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg sm:text-xl font-medium text-primary mb-2">
-                    🗺️ Interactive Visualizations
-                  </h3>
-                  <p className="leading-relaxed text-sm sm:text-base text-gray-700">
-                    Explore climate data through interactive maps, heatmaps, and charts 
-                    that make complex environmental data easy to understand.
-                  </p>
-                </div>
-                
-                <div>
-                  <h3 className="text-lg sm:text-xl font-medium text-primary mb-2">
-                    🤖 AI-Powered Insights
-                  </h3>
-                  <p className="leading-relaxed text-sm sm:text-base text-gray-700">
-                    Get instant answers to climate questions through our AI assistant, 
-                    backed by scientific research and real-time data analysis.
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <section className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h2 className="text-xl sm:text-2xl font-semibold text-accent mb-4">
-                Technology Stack
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-base sm:text-lg font-medium text-primary mb-2">Frontend</h3>
-                  <ul className="list-disc list-inside space-y-1 text-sm sm:text-base text-gray-700">
-                    <li>React with Vite</li>
-                    <li>Tailwind CSS</li>
-                    <li>Zustand for state management</li>
-                    <li>Axios for API calls</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-medium text-primary mb-2">Backend</h3>
-                  <ul className="list-disc list-inside space-y-1 text-sm sm:text-base text-gray-700">
-                    <li>Flask REST API</li>
-                    <li>NumPy & Pandas</li>
-                    <li>scikit-learn</li>
-                    <li>Machine Learning models</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-100">
-              <h2 className="text-xl sm:text-2xl font-semibold text-accent mb-4">
-                Get Involved
-              </h2>
-              <p className="leading-relaxed text-sm sm:text-base text-gray-700">
-                Climate change affects us all. Use this platform to explore, learn, 
-                and understand the challenges facing our planet. Share insights with 
-                your community and help raise awareness about the urgent need for 
-                climate action.
-              </p>
-            </section>
-          </div>
+          <p className="mt-4 text-lg text-black/80">
+            AI-powered marine intelligence for climate resilience and
+            ecosystem sustainability.
+          </p>
         </div>
+
+        {/* ================= WHAT WE DO ================= */}
+        <section>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6">
+            What V-Forge Does
+          </h2>
+
+          <p className="text-black/80 leading-relaxed">
+            V-Forge is an advanced marine ecosystem intelligence platform
+            designed to transform complex environmental datasets into
+            actionable climate insights. By integrating oceanographic
+            parameters, biodiversity records, and predictive AI models,
+            V-Forge enables data-driven decision-making for coastal and
+            marine sustainability.
+          </p>
+
+          <p className="mt-4 text-black/80 leading-relaxed">
+            The platform evaluates marine species suitability, ecosystem
+            stability, coastal hazard risks, and long-term climate impact
+            projections — all within a unified, interactive dashboard.
+          </p>
+        </section>
+
+        {/* ================= HOW IT WORKS ================= */}
+        <section>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6">
+            How It Works
+          </h2>
+
+          <div className="space-y-6 text-black/80 leading-relaxed">
+            <p>
+              1. Environmental data such as temperature, salinity,
+              chlorophyll concentration, and depth are processed through
+              AI-based predictive models.
+            </p>
+            <p>
+              2. The system calculates a composite Ocean Stability Index
+              to assess ecosystem health under current and projected
+              climate conditions.
+            </p>
+            <p>
+              3. Marine species habitat suitability is predicted using
+              probabilistic modeling across hundreds of biodiversity records.
+            </p>
+            <p>
+              4. Risk analytics evaluate coastal vulnerability and
+              environmental stress patterns across selected regions.
+            </p>
+          </div>
+        </section>
+
+        {/* ================= WHY IT MATTERS ================= */}
+        <section>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6">
+            Why It Matters
+          </h2>
+
+          <p className="text-black/80 leading-relaxed">
+            Climate change is rapidly altering marine ecosystems. Rising
+            temperatures, shifting salinity levels, and sea-level changes
+            directly impact biodiversity, fisheries, and coastal communities.
+          </p>
+
+          <p className="mt-4 text-black/80 leading-relaxed">
+            V-Forge provides predictive intelligence that moves marine
+            management from reactive to proactive. Instead of analyzing
+            past data alone, decision-makers can simulate future scenarios
+            and assess ecological resilience in advance.
+          </p>
+        </section>
+
+        {/* ================= WHO IT SERVES ================= */}
+        <section>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6">
+            Who It Serves
+          </h2>
+
+          <ul className="space-y-3 text-black/80">
+            <li>• Marine researchers and climate scientists</li>
+            <li>• Coastal planners and environmental agencies</li>
+            <li>• Fisheries sustainability analysts</li>
+            <li>• Policy makers and conservation organizations</li>
+            <li>• Climate-tech innovators and institutions</li>
+          </ul>
+        </section>
+
+        {/* ================= UNIQUE VALUE ================= */}
+        <section>
+          <h2 className="text-2xl font-semibold text-blue-600 mb-6">
+            What Makes V-Forge Different
+          </h2>
+
+          <p className="text-black/80 leading-relaxed">
+            Unlike traditional ocean monitoring tools that provide
+            static historical data, V-Forge combines predictive AI,
+            environmental simulation, and ecosystem stability modeling
+            into a unified intelligence platform.
+          </p>
+
+          <p className="mt-4 text-black/80 leading-relaxed">
+            It is not just a data dashboard — it is a decision-support
+            system engineered for long-term climate resilience.
+          </p>
+        </section>
+
+        {/* ================= CLOSING ================= */}
+        <div className="text-center pt-10">
+          <h3 className="text-xl font-semibold text-blue-600">
+            Building Intelligence for Sustainable Oceans
+          </h3>
+        </div>
+
       </div>
     </div>
   );

@@ -6,13 +6,13 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Marine Prediction", path: "/prediction" },
-    { name: "About", path: "/about" },
-    { name: "AI Assistant", path: "/assistant" },
     { name: "Encyclopedia", path: "/encyclopedia" },
+    { name: "Marine Prediction", path: "/prediction" },
+    { name: "AI Assistant", path: "/assistant" },
     { name: "Dashboard", path: "/dashboard" },
-    { name: "Case Studies", path: "/case-studies" }
-    
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "Hazard Detection", path: "/hazard-detection" },
+    { name: "About", path: "/about" },
   ];
 
   return (

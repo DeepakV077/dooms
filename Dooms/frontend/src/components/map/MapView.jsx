@@ -29,17 +29,6 @@ const MapView = ({ region }) => {
             <p className="font-mono font-bold text-blue-600 text-xl mb-6">
               {position[0].toFixed(2)}°N, {position[1].toFixed(2)}°E
             </p>
-            
-            <div className="border-t border-blue-200 pt-6 mt-6 text-left">
-              <p className="text-xs text-orange-500 font-semibold mb-3">🗺️ Enable Real Interactive Map</p>
-              <p className="text-sm text-blue-600 mb-3 leading-relaxed">
-                To enable Leaflet map with OpenStreetMap tiles:
-              </p>
-              <div className="bg-blue-100 text-blue-800 px-4 py-3 rounded-lg text-xs font-mono text-center space-y-2">
-                <p>npm install leaflet@1.9.4 react-leaflet@4.2.1</p>
-              </div>
-              <p className="text-xs text-blue-500 mt-3 text-center">Then: npm run dev</p>
-            </div>
           </div>
         </div>
 
