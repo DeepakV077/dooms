@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useEffect } from "react";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
 // Fix leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
