@@ -8,6 +8,7 @@ const MarinePrediction = () => {
         salinity: "",
         depth: "",
         chlorophyll: "",
+        density: "",
         trendIndex: ""
     });
 
@@ -154,6 +155,21 @@ const MarinePrediction = () => {
                                 />
                                 <label className="absolute left-4 -top-2.5 bg-white px-2 text-sm font-medium text-gray-700 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 transition-all peer-focus:-top-2.5 peer-focus:text-blue-600 peer-focus:text-sm">
                                     Chlorophyll (mg/m³)
+                                </label>
+                            </div>
+
+                            {/* Density */}
+                            <div className="relative">
+                                <input
+                                    type="number"
+                                    name="density"
+                                    value={formData.density}
+                                    onChange={handleChange}
+                                    className="peer w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-600 transition-colors"
+                                    placeholder=" "
+                                />
+                                <label className="absolute left-4 -top-2.5 bg-white px-2 text-sm font-medium text-gray-700 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 transition-all peer-focus:-top-2.5 peer-focus:text-blue-600 peer-focus:text-sm">
+                                    Water Density (kg/m³)
                                 </label>
                             </div>
 
